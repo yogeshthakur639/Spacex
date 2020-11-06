@@ -1,0 +1,108 @@
+<section class="products-container">
+  <div class="content-wrapper">
+    <div class="header-wrapper">
+      <h1 class="spacex-heading">SpaceX Launch Programs</h1>
+    </div>
+    <div class="spacex-content-wrapper">
+      <div class="sidebar-wrapper">
+        <mat-card>
+          <mat-card-title>Filters</mat-card-title>
+          <mat-card-subtitle>Launch Year</mat-card-subtitle>
+          <mat-card-content class="years-wrapper">
+            <div class="years-value" *ngFor="let yearValue of yearValues">
+              <p
+                class="year-title"
+                (click)="filterSpaceXProduct('year', yearValue.value)"
+              >
+                {{ yearValue.value }}
+              </p>
+            </div>
+          </mat-card-content>
+          <mat-card-subtitle>Successful Launch</mat-card-subtitle>
+          <mat-card-content class="successful-Launch-button">
+            <button
+              mat-button
+              color="primary"
+              (click)="filterSpaceXProduct('successful_launch', true)"
+            >
+              True
+            </button>
+            <button
+              mat-button
+              color="primary"
+              (click)="filterSpaceXProduct('successful_launch', false)"
+            >
+              False
+            </button>
+          </mat-card-content>
+          <mat-card-subtitle>Successful Landing</mat-card-subtitle>
+          <mat-card-content class="successful-Landing-button">
+            <button
+              mat-button
+              color="primary"
+              (click)="filterSpaceXProduct('successful_landing', true)"
+            >
+              True
+            </button>
+            <button
+              mat-button
+              color="primary"
+              (click)="filterSpaceXProduct('successful_landing', false)"
+            >
+              False
+            </button>
+          </mat-card-content>
+          <mat-card-content class="successful-Landing-button">
+            <button
+              mat-button
+              class="clear"
+              color="primary"
+              (click)="getSpaceXProduct(100)"
+            >
+              Clear Filter
+            </button>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="products-wrapper">
+        <ng-container *ngIf="loader">
+          <mat-spinner class="loader"></mat-spinner>
+        </ng-container>
+        <ng-container *ngIf="spaceXProducts && !loader">
+          <div class="card-flex-wrapper">
+            <mat-card class="product-card" *ngFor="let item of spaceXProducts">
+              <img mat-card-image src="{{ item.links.mission_patch }}" />
+              <mat-card-subtitle class="product-heading"
+                >{{ item.mission_name }} #{{
+                  item.flight_number
+                }}</mat-card-subtitle
+              >
+              <mat-card-content>
+                <div class="spaceX-details">
+                  <div class="mission-heading">
+                    <label>Mission ids:</label>
+                    <p>fsd</p>
+                  </div>
+                  <div class="mission-heading">
+                    <label>Launch year:</label>
+                    <p>{{ item.launch_year }}</p>
+                  </div>
+                  <div class="mission-heading">
+                    <label>Successful Launch:</label>
+                    <p>{{ item.launch_success }}</p>
+                  </div>
+                  <div class="mission-heading">
+                    <label>Successful Landing:</label>
+                    <p>
+                      {{ item.rocket?.first_stage?.cores[0]?.land_success }}
+                    </p>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</section>

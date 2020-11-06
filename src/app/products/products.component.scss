@@ -1,0 +1,116 @@
+.products-container {
+  background: lightgrey;
+  height: auto;
+
+  .content-wrapper {
+    .header-wrapper {
+      .spacex-heading {
+        padding: 18px 10px;
+      }
+    }
+
+    .spacex-content-wrapper {
+      display: flex;
+
+      .sidebar-wrapper {
+        align-content: space-between;
+        width: 24%;
+        margin: 10px;
+
+        .mat-card {
+          .years-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            justify-content: space-between;
+            align-items: stretch;
+
+            .years-value {
+              margin: 0 0px 15px;
+              width: 50%;
+              text-align: center;
+
+              .year-title {
+                background: lightgreen;
+                align-content: space-between;
+                margin: 0px 20px;
+                padding: 3px 0px;
+                cursor: pointer;
+              }
+            }
+          }
+
+          mat-card-subtitle {
+            color: blue;
+            margin: 13px 20px;
+            border-bottom: 1px solid;
+            text-align: center;
+          }
+
+          .successful-Launch-button button {
+            background: lightgreen;
+            margin: 0px 18px;
+            align-content: space-between;
+            color: black;
+          }
+
+          .successful-Landing-button button {
+            background: lightgreen;
+            margin: 0px 18px;
+            align-content: space-between;
+            color: black;
+          }
+
+          .clear {
+            margin-left: 30px;
+          }
+        }
+      }
+
+      .products-wrapper {
+        align-content: space-between;
+        margin: 10px;
+        width: 100%;
+
+        .loader {
+          margin: 2rem 25rem;
+        }
+
+        .card-flex-wrapper {
+          display: flex;
+          width: 100%;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          align-content: flex-start;
+
+          .product-card {
+            align-items: space-around;
+            flex: 0 1 calc(25% - 44px);
+            max-width: calc(25% - 44px);
+            margin: 0 5px 30px;
+
+            .product-heading {
+              font-size: 1rem;
+              font-weight: bold;
+              color: blue;
+            }
+            .spaceX-details {
+              .mission-heading {
+                display: flex;
+                label {
+                  font-size: 1rem;
+                  font-weight: bold;
+                  width: 43%;
+                }
+                p {
+                  margin-left: 8px;
+                  color: blue;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
